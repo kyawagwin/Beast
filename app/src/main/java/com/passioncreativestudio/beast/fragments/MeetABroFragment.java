@@ -12,7 +12,9 @@ import android.view.ViewGroup;
 import com.passioncreativestudio.beast.R;
 import com.passioncreativestudio.beast.activities.BaseActivity;
 import com.passioncreativestudio.beast.entities.Brother;
+import com.passioncreativestudio.beast.services.BrotherServices;
 import com.passioncreativestudio.beast.views.MeetABroViews.MeetABroAdapter;
+import com.squareup.otto.Subscribe;
 
 import java.util.ArrayList;
 
@@ -38,7 +40,8 @@ public class MeetABroFragment extends BaseFragment implements MeetABroAdapter.On
         adapter = new MeetABroAdapter((BaseActivity) getActivity(), this);
         brothers = adapter.getBrothers();
         setUpAdapter();
-        getBrothers(brothers);
+
+        bus.post(new BrotherServices.SearchBrotherRequest("Firebase Url"));
 
         return view;
     }
@@ -54,18 +57,9 @@ public class MeetABroFragment extends BaseFragment implements MeetABroAdapter.On
         Log.i(LOG_TAG, brother.getBrotherName() + " was clicked!");
     }
 
-    private ArrayList<Brother> getBrothers(ArrayList<Brother> brothers) {
-        for(int i = 0; i < 32; i++) {
-            brothers.add(new Brother(
-                    i,
-                    "Brother " + i,
-                    "joined for this reason",
-                    "http://www.gravatar.com/avatar/" + i + "?d=identicon",
-                    "Computer Science",
-                    "Spring 2015",
-                    "I love to code my heart out"));
-        }
-
-        return brothers;
+    @Subscribe
+    public void getBrothers(BrotherServices.SearchBrotherResponse response) {
+        brothers.clear();
+        brothers.addAll(response.brothers);
     }
 }

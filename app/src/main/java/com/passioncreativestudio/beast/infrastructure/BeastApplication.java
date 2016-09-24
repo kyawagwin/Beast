@@ -2,6 +2,7 @@ package com.passioncreativestudio.beast.infrastructure;
 
 import android.app.Application;
 
+import com.passioncreativestudio.beast.inmemory.Module;
 import com.squareup.otto.Bus;
 
 public class BeastApplication extends Application {
@@ -13,5 +14,12 @@ public class BeastApplication extends Application {
 
     public BeastApplication() {
         this.bus = new Bus();
+    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+
+        Module.Register(this);
     }
 }
