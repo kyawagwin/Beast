@@ -1,5 +1,6 @@
 package com.passioncreativestudio.beast.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 
 import com.passioncreativestudio.beast.R;
 import com.passioncreativestudio.beast.activities.BaseActivity;
+import com.passioncreativestudio.beast.activities.PracticeActivity;
 import com.passioncreativestudio.beast.entities.Brother;
 import com.passioncreativestudio.beast.services.BrotherServices;
 import com.passioncreativestudio.beast.views.MeetABroViews.MeetABroAdapter;
@@ -54,7 +56,8 @@ public class MeetABroFragment extends BaseFragment implements MeetABroAdapter.On
 
     @Override
     public void OnBrotherClicked(Brother brother) {
-        Log.i(LOG_TAG, brother.getBrotherName() + " was clicked!");
+        Intent intent = PracticeActivity.newIntent(getActivity(), brother);
+        startActivity(intent);
     }
 
     @Subscribe

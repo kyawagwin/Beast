@@ -21,7 +21,7 @@ public class InMemoryBrotherServices extends BaseInMemory {
             response.brothers.add(new Brother(
                     i,
                     "Brother " + i,
-                    "joined for this reason",
+                    "Brother " + i + " joined for this reason",
                     "http://www.gravatar.com/avatar/" + i + "?d=identicon",
                     "Computer Science",
                     "Spring 2015",

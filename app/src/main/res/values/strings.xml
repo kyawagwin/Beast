@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Beast</string>
+
+    <string name="major_intro">Major : %1s</string>
+    <string name="fun_fact_intro">Fun Fact : %1s</string>
+    <string name="crossed_intro">Joined : %1s</string>
+
 </resources>
