@@ -12,11 +12,13 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends BaseActivity {
 
+    //region view members
     @BindView(R.id.activity_main_viewPager)
     ViewPager mainViewPager;
 
     @BindView(R.id.activity_main_tabLayout)
     TabLayout tabLayout;
+    //endregion
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

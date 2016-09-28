@@ -18,6 +18,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class BrotherDetailsFragment extends BaseFragment {
+    //region view members
     @BindView(R.id.fragment_brother_details_brotherPicture)
     ImageView brotherPicture;
 
@@ -38,19 +39,27 @@ public class BrotherDetailsFragment extends BaseFragment {
 
     @BindView(R.id.fragment_brother_details_brotherWhyJoined)
     TextView brotherWhyJoined;
+    //endregion
 
+    //region other members
     private Brother brother;
-    private final String BROTHER_EXTRA_INFO = "BROTHER_EXTRA_INFO";
 
-    public static BrotherDetailsFragment newInstance() {
-        return new BrotherDetailsFragment();
+    private static final String BROTHER_EXTRA_INFO = "BROTHER_EXTRA_INFO";
+    //endregion
+
+    public static BrotherDetailsFragment newInstance(Brother brother) {
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(BROTHER_EXTRA_INFO, brother);
+        BrotherDetailsFragment brotherDetailsFragment = new BrotherDetailsFragment();
+        brotherDetailsFragment.setArguments(bundle);
+        return brotherDetailsFragment;
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        brother = (Brother) getActivity().getIntent().getParcelableExtra(BROTHER_EXTRA_INFO);
+        brother = getArguments().getParcelable(BROTHER_EXTRA_INFO);
     }
 
     @Nullable

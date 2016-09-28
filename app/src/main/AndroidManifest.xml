@@ -22,7 +22,8 @@
         </activity>
 
         <activity
-            android:name=".activities.PracticeActivity"
+            android:name=".activities.BrotherPagerActivity"
+            android:theme="@style/CustomDialogActivity"
             android:screenOrientation="portrait"/>
     </application>
 

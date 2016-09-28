@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 
 import com.passioncreativestudio.beast.R;
 import com.passioncreativestudio.beast.activities.BaseActivity;
+import com.passioncreativestudio.beast.activities.BrotherPagerActivity;
 import com.passioncreativestudio.beast.activities.PracticeActivity;
 import com.passioncreativestudio.beast.entities.Brother;
 import com.passioncreativestudio.beast.services.BrotherServices;
@@ -56,7 +57,7 @@ public class MeetABroFragment extends BaseFragment implements MeetABroAdapter.On
 
     @Override
     public void OnBrotherClicked(Brother brother) {
-        Intent intent = PracticeActivity.newIntent(getActivity(), brother);
+        Intent intent = BrotherPagerActivity.newIntent(getActivity(), brother);
         startActivity(intent);
     }
 

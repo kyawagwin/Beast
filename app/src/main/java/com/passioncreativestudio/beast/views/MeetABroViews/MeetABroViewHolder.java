@@ -15,11 +15,14 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MeetABroViewHolder extends RecyclerView.ViewHolder {
+
+    //region view members
     @BindView(R.id.list_meet_a_bro_imageView)
     ImageView brotherPic;
 
     @BindView(R.id.list_meet_a_bro_progressBar)
     ProgressBar brotherProgressBar;
+    //endregion
 
     public MeetABroViewHolder(View itemView) {
         super(itemView);

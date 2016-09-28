@@ -18,6 +18,7 @@ public class PracticeActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        /*
         setContentView(R.layout.activity_practice);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -29,6 +30,7 @@ public class PracticeActivity extends BaseActivity {
             fragmentManager.beginTransaction()
                     .add(R.id.activity_practice_fragment_container, fragment).commit();
         }
+        */
     }
 
     public static Intent newIntent(Context context, Brother brother) {
